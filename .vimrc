@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
 	Plug 'tpope/vim-surround'
+	Plug 'tpope/vim-commentary'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 	Plug 'mangeshrex/uwu.vim'
@@ -30,8 +31,6 @@ if exists('+termguicolors')
 endif
 
 " DEFAULTS
-set rtp+=/usr/local/opt/fzf
-
 filetype plugin indent on
 syntax on
 
@@ -65,16 +64,17 @@ highlight NonText ctermfg=240 guifg=#585858
 set listchars=eol:↙︎,tab:‧‧,trail:‧
 set list
 
-map		<leader>f		:Files<CR>
-map		<leader>l		:BLines<CR>
-map		<leader>b		:Buffers<CR>
-
 " CONCEAL
 au VimEnter * syntax keyword Statement lambda conceal cchar=λ
 au VimEnter * syntax match arrow "->" conceal cchar=→
 au VimEnter * hi! link Conceal Statement
 au VimEnter * set conceallevel=2
 
+" FZF
+set rtp+=/usr/local/opt/fzf
+map		<leader>f		:Files<CR>
+map		<leader>l		:BLines<CR>
+map		<leader>b		:Buffers<CR>
 " HEXOKINASE
 let g:Hexokinase_highlighters = ['backgroundfull']
 " COC
