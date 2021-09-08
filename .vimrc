@@ -79,6 +79,10 @@ au VimEnter * set conceallevel=2
 let g:Hexokinase_highlighters = ['backgroundfull']
 " COC
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-html', 'coc-css', 'coc-pyright', 'coc-go', 'coc-clangd']
+let g:go_diagnostics_enabled=0
+let g:go_metalinter_enabled=[]
+let g:go_jump_to_error=0
+let g:go_echo_go_info=0
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <leader>rn <Plug>(coc-rename)
@@ -92,7 +96,3 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-let g:go_diagnostics_enabled=0
-let g:go_metalinter_enabled=[]
-let g:go_jump_to_error=0
-let g:go_echo_go_info=0
