@@ -13,22 +13,12 @@ call plug#begin('~/.vim/plugged')
 	Plug 'junegunn/fzf.vim'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-commentary'
+	Plug 'airblade/vim-gitgutter'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 	Plug 'mangeshrex/uwu.vim'
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
-
-" COLORSCHEME
-colorscheme uwu
-
-set t_Co=256
-let &t_ut=''
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
 
 " DEFAULTS
 filetype plugin indent on
@@ -59,8 +49,6 @@ set shiftwidth=4
 set tabstop=4
 
 " WHITESPACE visible
-highlight SpecialKey ctermfg=240 guifg=#585858
-highlight NonText ctermfg=240 guifg=#585858
 set listchars=eol:↙︎,tab:‧‧,trail:‧
 set list
 
@@ -75,14 +63,12 @@ set rtp+=/usr/local/opt/fzf
 map		<leader>f		:Files<CR>
 map		<leader>l		:BLines<CR>
 map		<leader>b		:Buffers<CR>
+
 " HEXOKINASE
 let g:Hexokinase_highlighters = ['backgroundfull']
+
 " COC
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-html', 'coc-css', 'coc-pyright', 'coc-go', 'coc-clangd']
-let g:go_diagnostics_enabled=0
-let g:go_metalinter_enabled=[]
-let g:go_jump_to_error=0
-let g:go_echo_go_info=0
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <leader>rn <Plug>(coc-rename)
@@ -96,3 +82,24 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" VIM-GO
+let g:go_diagnostics_enabled=0
+let g:go_metalinter_enabled=[]
+let g:go_jump_to_error=0
+let g:go_echo_go_info=0
+
+" COLORSCHEME
+colorscheme uwu
+
+set t_Co=256
+let &t_ut=''
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
+highlight Comment cterm=italic gui=italic ctermfg=60 guifg=#5f5f87
+highlight SpecialKey ctermfg=240 guifg=#585858
+highlight NonText ctermfg=240 guifg=#585858
