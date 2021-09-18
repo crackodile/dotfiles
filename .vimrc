@@ -1,9 +1,10 @@
-set encoding=utf-8
-
 " DEFAULTS
 filetype plugin indent on
 syntax on
 
+set encoding=utf-8
+set t_ZH=[3m
+set t_ZR=[23m
 set nocompatible
 set nobackup nowritebackup noswapfile noundofile
 set number relativenumber

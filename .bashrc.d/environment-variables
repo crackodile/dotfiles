@@ -1,0 +1,3 @@
+export VISUAL="vim"
+export FZF_DEFAULT_COMMAND="ag --nocolor --hidden -g '' -l /"
+export FZF_ALT_C_COMMAND="find / -type d 2>/dev/null"
