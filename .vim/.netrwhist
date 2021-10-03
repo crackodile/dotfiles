@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/eggxor/CTF/deconstruCTF/rsa-1'
+let g:netrw_dirhist_3='/home/eggxor/CTF/deconstruCTF'
+let g:netrw_dirhist_2='/home/eggxor/CTF/deconstruCTF/rsa-1'
+let g:netrw_dirhist_1='/home/eggxor/Sources/writeups/DUCTF/2021/Break me!'

@@ -41,14 +41,13 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-commentary'
 	Plug 'airblade/vim-gitgutter'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-	Plug 'mangeshrex/uwu.vim'
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
@@ -76,12 +75,12 @@ command! CocToggle :call CocToggle()
 
 nmap		<silent>gd		<Plug>(coc-definition)
 nmap		<silent>gi		<Plug>(coc-implementation)
-xmap		<leader>f		<Plug>(coc-format-selected)
-nmap		<leader>f		<Plug>(coc-format-selected)
+xmap		<leader>cf		<Plug>(coc-format-selected)
+nmap		<leader>cf		<Plug>(coc-format-selected)
 nmap		<leader>r		<Plug>(coc-rename)
 inoremap	<silent><expr>	<c-@> coc#refresh()
 inoremap	<silent><expr>	<cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-nmap		<leader>tc		:CocToggle<CR>
+nmap		<leader>ct		:CocToggle<CR>
 
 " VIM-GO
 let g:go_diagnostics_enabled=0
@@ -111,8 +110,9 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-colorscheme uwu
+colorscheme plan9
 
-highlight Comment cterm=italic gui=italic ctermfg=60 guifg=#5f5f87
-highlight SpecialKey ctermfg=240 guifg=#585858
-highlight NonText ctermfg=240 guifg=#585858
+highlight Comment cterm=italic gui=italic
+" highlight SpecialKey ctermfg=186 ctermbg=230 guifg=#d7d787 guibg=#ffffd7
+" highlight NonText ctermfg=186 ctermbg=230 guifg=#d7d787 guibg=#ffffd7
+" highlight SignColumn ctermfg=186 ctermbg=230 guifg=#d7d787 guibg=#ffffd7
