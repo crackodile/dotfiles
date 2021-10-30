@@ -1,0 +1,5 @@
+alias ls='ls -Gh'
+alias lla='ls -Flap'
+alias ll='ls -l'
+alias la='ls -a'
+alias cp='cp -R'
