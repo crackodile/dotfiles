@@ -73,14 +73,26 @@ function! CocToggle()
 endfunction
 command! CocToggle :call CocToggle()
 
+nmap		<leader>r		<Plug>(coc-rename)
 nmap		<silent>gd		<Plug>(coc-definition)
 nmap		<silent>gi		<Plug>(coc-implementation)
 xmap		<leader>cf		<Plug>(coc-format-selected)
 nmap		<leader>cf		<Plug>(coc-format-selected)
-nmap		<leader>r		<Plug>(coc-rename)
+nmap		<leader>ct		:CocToggle<CR>
 inoremap	<silent><expr>	<c-@> coc#refresh()
 inoremap	<silent><expr>	<cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-nmap		<leader>ct		:CocToggle<CR>
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
 " VIM-GO
 let g:go_diagnostics_enabled=0
@@ -117,3 +129,4 @@ highlight SpecialKey guifg=#d7d787 guibg=#ffffeb
 highlight NonText guifg=#d7d787 guibg=#ffffeb
 highlight SignColumn guifg=#d7d787 guibg=#ffffeb
 highlight LineNr guifg=#baa065 guibg=#ffffeb
+highlight VertSplit guifg=#accbfc guibg=#ffffeb
