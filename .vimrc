@@ -24,7 +24,7 @@ set preserveindent
 set softtabstop=0
 set shiftwidth=4
 set tabstop=4
-set listchars=eol:↙︎,tab:‧‧,trail:‧
+set listchars=eol:↙︎,tab:»\ ,trail:‧
 set list
 
 let mapleader = ","
@@ -110,9 +110,10 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-colorscheme plan9
+colorscheme vacme
 
 highlight Comment cterm=italic gui=italic
-" highlight SpecialKey ctermfg=186 ctermbg=230 guifg=#d7d787 guibg=#ffffd7
-" highlight NonText ctermfg=186 ctermbg=230 guifg=#d7d787 guibg=#ffffd7
-" highlight SignColumn ctermfg=186 ctermbg=230 guifg=#d7d787 guibg=#ffffd7
+highlight SpecialKey guifg=#d7d787 guibg=#ffffeb
+highlight NonText guifg=#d7d787 guibg=#ffffeb
+highlight SignColumn guifg=#d7d787 guibg=#ffffeb
+highlight LineNr guifg=#baa065 guibg=#ffffeb
